@@ -8,8 +8,7 @@ import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  //Link
+  Route
 } from 'react-router-dom';
 
 function App() {
@@ -32,13 +31,13 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtils - Dark Mode";
+      //document.title = "TextUtils - Dark Mode";
     }
     else {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtils - Light Mode";
+      //document.title = "TextUtils - Light Mode";
     }
   }
   return (
@@ -48,9 +47,10 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<About mode={mode} />} />
             <Route exact path="/" element=
-              {<Textform showAlert={showAlert} heading="Enter te text to analyze" mode={mode} />} />
+              {<Textform showAlert={showAlert} heading="TextUtils - Word counter, Character counter,
+             Remove extra spaces" mode={mode} />} />
           </Routes>
         </div>
       </Router>
